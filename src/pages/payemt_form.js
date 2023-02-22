@@ -1,9 +1,9 @@
 import React from 'react'
-import Header from '../components/header'
+import { Leftside } from '../components/leftside'
 
 const PaymentForm = () => {
   return (
-    <><Header/><div>hi</div></>
+   <Leftside/>
   )
 }
 

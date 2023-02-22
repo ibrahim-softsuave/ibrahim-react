@@ -1,0 +1,27 @@
+.element {
+    display: flex;
+    justify-content: space-between;
+}
+
+
+.left-element {
+   width: 150vh;
+   height: 100vh;
+    text-align: center;
+    
+}
+
+.right-elemnt {
+    border-left: 2px solid black;
+    width: 50vh;
+    height: 100vh;
+    text-align: center;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+}
+.label {
+        padding-left: 10px;
+}

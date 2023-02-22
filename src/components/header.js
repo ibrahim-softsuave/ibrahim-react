@@ -17,9 +17,9 @@ export default function Header(){
          <div className="navbar">
             <Link to="#" className="menu-bars">
                     <Faicons.FaBars onClick={showSidebar}/>
+                    <span style={{color:'#fff',fontSize:'35px',height:'45px'}}>IGBT Bank</span>
             </Link> 
             <span className="nav-items">
-            <span style={{color:'#fff',fontSize:'35px',height:'45px'}}>IGBT Bank</span>
             <span style={{color:'#fff',fontSize:'35px',height:'45px'}}><Faicons.FaUserCircle/></span>
             <span style={{color:'#fff',fontSize:'35px',height:'45px'}}><Aaicons.AiFillFileText/></span>
             <span style={{color:'#fff',fontSize:'35px',height:'45px'}}><Aaicons.AiOutlineMessage/></span>
