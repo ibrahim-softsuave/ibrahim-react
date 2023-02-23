@@ -10,31 +10,31 @@ export const Leftside = () => {
         <p>Pay Someone</p>
         <p>you can pay some one in 4 easy steps</p>
         <form className='form'>
-            <label>
+            <label className='label'>
                 Pay :
                 <input type="text"></input>
             </label>
-            <label >
+            <label className='label'>
                 Form :
                 <input type="text"></input>
             </label>
-            <label>
+            <label className='label'>
                 Amount :
                 <input type="text"></input>
-            </label>
-            <label>
+            </label >
+            <label className='label'>
                 Payment Reason :
                 <input type="text"></input>
             </label>
-            <label>
+            <label className='label'>
               send advice to :
                 <input type="text"></input>
             </label>
-            <label>
+            <label className='label'>
                 withholding tax :
                 <input type="text"></input>
             </label>
-            <label>
+            <label className='label'>
                 supporting documents :
                 <input type="text"></input>
             </label>

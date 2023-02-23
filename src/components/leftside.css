@@ -23,5 +23,8 @@
     flex-direction: column;
 }
 .label {
-        padding-left: 10px;
+        display: flex;
+        justify-content: left;
+        align-items: center;
+        
 }
