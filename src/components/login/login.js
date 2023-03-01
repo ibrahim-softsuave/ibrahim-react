@@ -28,7 +28,8 @@ const handleSubmit=async(e)=>{
     const response = await axios.post(LOGIN_URL,{userName:user,password:pwd}
     );
     console.log(JSON.stringify(response?.data));
-    setAuth({ user, pwd });
+    const account_no=response.data.data[0].accountNo
+    setAuth({ user, pwd,account_no});
     setUser('');
     setPwd('');
     setSuccess(true);

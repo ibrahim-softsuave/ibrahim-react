@@ -2,8 +2,13 @@ import React, { useState } from 'react'
 import './leftside.css' 
 import  * as Aaicons  from "react-icons/ai";
 import { IconContext } from "react-icons/lib";
+import { useContext } from 'react';
+import AuthContext from './login/context/Authprovider';
+import axios from './login/api/axios';
+const USER='/intelletUsers'
 
 export const Leftside = () => {
+    const user=useContext(AuthContext);
     const[formData,setFormData]=useState({});
     const[success,setSuccess]=useState(true);
 
@@ -31,7 +36,12 @@ export const Leftside = () => {
             <p >Pay Someone</p>
             <p >you can pay some one in 4 easy steps</p>
         </div>
-        <form >
+        <form autoComplete='off'>
+            <label >Pay : </label>
+                <input list='pay-list'></input>
+                <datalist id='pay-list'>
+                    <option value={['hello']}/>
+                </datalist><br></br>
             <label >Pay : </label>
                 <input type="text" name='pay' value={formData.pay} onChange={handleChange}></input><br/>
             <label >From : </label>
