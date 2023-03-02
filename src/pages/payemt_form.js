@@ -1,6 +1,6 @@
 import React from 'react'
 import { Leftside } from '../components/leftside'
-import Header from '../components/header';
+import Header from '../components/navbar';
 
 const PaymentForm = () => {
   return (

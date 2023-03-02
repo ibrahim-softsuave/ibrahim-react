@@ -3,18 +3,20 @@ import './login.css'
 import { useRef,useState,useEffect,useContext} from 'react'
 import AuthContext from '../login/context/Authprovider'
 import axios from './api/axios'
+import { useNavigate } from "react-router-dom";
+
 const LOGIN_URL='/login'
 
+
 const Login  = () => {
+  const navigate=useNavigate();
   const { setAuth } = useContext(AuthContext);
   const userRef =useRef();
   const errRef = useRef();
 
   const [user,setUser]=useState('');
   const [pwd,setPwd]=useState('');
-  const [errmsg,setErrMsg]=useState('');
-  const [success,setSuccess]=useState(false);
-  
+  const [errmsg,setErrMsg]=useState('');  
   useEffect(()=>{
     userRef.current.focus()
   },[])
@@ -25,15 +27,14 @@ const Login  = () => {
 const handleSubmit=async(e)=>{
   e.preventDefault();
   try {
-    const response = await axios.post(LOGIN_URL,{userName:user,password:pwd}
-    );
-    console.log(JSON.stringify(response?.data));
+    const response = await axios.post(LOGIN_URL,{userName:user,password:pwd});
     const account_no=response.data.data[0].accountNo
-    setAuth({ user, pwd,account_no});
+    setAuth({ user:user, pwd:pwd,account_no:account_no});
     setUser('');
     setPwd('');
-    setSuccess(true);
-} catch (err) {
+    navigate('/home');
+    } 
+  catch (err) {
     if (!err?.response) {
         setErrMsg('No Server Response');
     } else if (err.response?.status === 400) {
@@ -44,26 +45,17 @@ const handleSubmit=async(e)=>{
         setErrMsg('Login Failed');
     }
     errRef.current.focus();
-}
+  }
 
 }
 
   return (
-   
+    <>
     <div className='outer'>
-       <>{success ?(
-        <section className='sec'>
-          <h1>you are logged in!</h1>
-          <br/>
-          <p>
-            <a href='http://localhost:3000/home'>Go to Home</a>
-          </p>
-        </section>
-       ):
             <section className='sec'>
               <p ref={errRef} className={errmsg ? "errmsg":"offscreen"} aria-live="assertive">{errmsg}</p>
                 <h1>Sign In</h1>
-                <form onSubmit={handleSubmit} className='frm'>
+                <form onSubmit={handleSubmit}  className='frm'>
                   <label className='labe'>
                     User Name :
                     <input type="text"
@@ -83,7 +75,7 @@ const handleSubmit=async(e)=>{
                      required
                      onChange={(e)=>setPwd(e.target.value)}></input>
                   </label>
-                  <button>Submit</button>
+                  <button>SiginIn</button>
                 </form>
                 <p style={{textAlign:'center'}}>
                   Need an account ?
@@ -92,9 +84,9 @@ const handleSubmit=async(e)=>{
                 <a href="https://google.com">Signup</a>
                 </p>
             </section>
-}
+            {/* {success?<Navigate to="/home" replace={true} />:<Navigate to="/" replace={true} />} */}
+            </div>
             </>
-  </div>
   
   )
 }

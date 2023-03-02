@@ -5,7 +5,7 @@ import  * as Ioicons  from "react-icons/io5";
 import { Link } from "react-router-dom";
 import { useState } from "react";
 import { SidebarData } from "./SidebarData";
-import './header.css'
+import './navbar.css'
 import { IconContext } from "react-icons/lib";
 
 export default function Header(){
@@ -29,7 +29,7 @@ export default function Header(){
             </span>
         </div>
         <nav className={state ?'nav-menu active':"nav-menu"}>
-            <ul calssName="nav-menu-items" onClick={showSidebar}>
+            <ul style={{ width:'100%'}} onClick={showSidebar}>
                 <li className="navbar-toggle">
                     <Link to="#" className="menu-bars">
                     <Aaicons.AiOutlineClose/>
